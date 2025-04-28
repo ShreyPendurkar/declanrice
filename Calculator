@@ -1,0 +1,31 @@
+#!/bin/bash
+echo "Enter first number: "
+read num1
+echo "Enter second number: "
+read num2
+echo "Select operation:"
+echo "1. Add"
+echo "2. Subtract"
+echo "3. Multiply"
+echo "4. Divide"
+read choice
+case $choice in
+ 1) result=$(($num1 + $num2))
+ echo "Addition result: $result"
+ ;;
+ 2) result=$(($num1 - $num2))
+ echo "Subtraction result: $result"
+ ;;
+ 3) result=$(($num1 * $num2))
+ echo "Multiplication result: $result"
+ ;;
+ 4) if [ $num2 -ne 0 ]; then
+ result=$(($num1 / $num2))
+ echo "Division result: $result"
+ else
+ echo "Division by zero is not allowed"
+ fi
+ ;;
+ *) echo "Invalid choice"
+ ;;
+esac
