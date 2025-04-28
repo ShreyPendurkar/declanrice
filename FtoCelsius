@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Enter temperature in Fahrenheit: "
+read fahrenheit
+centigrade=$(echo "scale=2; ($fahrenheit - 32) * 5 / 9" | bc)
+echo "$fahrenheit °F is equal to $centigrade °C"
