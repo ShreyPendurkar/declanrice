@@ -1,0 +1,59 @@
+#!/bin/bash
+echo "Enter a number: "
+read num
+original_num=$num  # Preserve the original value of num
+
+# Check if Even or Odd
+if (( num % 2 == 0 )); then
+ echo "$num is Even"
+else
+ echo "$num is Odd"
+fi
+
+# Check if Prime
+prime=true
+if (( num <= 1 )); then
+ prime=false
+fi
+for (( i = 2; i <= num / 2; i++ )); do
+ if (( num % i == 0 )); then
+ prime=false
+ break
+ fi
+done
+if $prime; then
+ echo "$num is Prime"
+else
+ echo "$num is not Prime"
+fi
+
+# Check if Palindrome
+num=$original_num  # Reset num for palindrome check
+temp=$num
+reverse=0
+while (( num > 0 )); do
+ digit=$((num % 10))
+ reverse=$((reverse * 10 + digit))
+ num=$((num / 10))
+done
+if (( temp == reverse )); then
+ echo "$temp is a Palindrome"
+else
+ echo "$temp is not a Palindrome"
+fi
+
+# Check if Armstrong
+num=$original_num  # Reset num for Armstrong check
+sum=0
+temp=$num
+num_of_digits=${#temp}
+while (( temp > 0 )); do
+ digit=$((temp % 10))
+ sum=$((sum + digit ** num_of_digits))
+ temp=$((temp / 10))
+done
+if (( sum == num )); then
+ echo "$num is an Armstrong number"
+else
+ echo "$num is not an Armstrong number"
+fi
