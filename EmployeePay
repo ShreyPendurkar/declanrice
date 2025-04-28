@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Enter employee name: "
+read name
+echo "Enter hours worked: "
+read hours
+echo "Enter hourly rate: "
+read rate
+# Calculate the pay
+pay=$(echo "$hours * $rate" | bc)
+echo "Employee: $name"
+echo "Total Pay: $pay"
