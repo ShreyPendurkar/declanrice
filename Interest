@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "Enter principal amount: "
+read principal
+
+echo "Enter rate of interest (per annum): "
+read rate
+
+echo "Enter time (in years): "
+read time
+
+# Simple Interest Calculation
+simple_interest=$(echo "scale=2; $principal * $rate * $time / 100" | bc)
+echo "Simple Interest: ₹$simple_interest"
+
+# Compound Interest Calculation
+amount=$(echo "scale=4; $principal * (1 + $rate / 100)^$time" | bc -l)
+compound_interest=$(echo "scale=2; $amount - $principal" | bc)
+echo "Compound Interest: $compound_interest"
