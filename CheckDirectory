@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "Enter the directory/file name: "
+read filename
+if [ -e "$filename" ]; then
+ echo "$filename already exists."
+else
+ if [[ "$filename" == */ ]]; then
+  mkdir -p "$filename"
+  echo "Directory '$filename' created."
+ else
+  touch "$filename"
+  echo "File '$filename' created."
+ fi
+fi
