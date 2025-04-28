@@ -1,0 +1,18 @@
+#!/bin/bash
+echo "Enter the list of elements (space-separated): "
+read -a list
+echo "Enter the element to search: "
+read element
+found=false
+for i in "${list[@]}"
+do
+ if [ "$i" == "$element" ]; then
+ found=true
+ break
+ fi
+done
+if [ "$found" = true ]; then
+ echo "Element '$element' is present in the list."
+else
+ echo "Element '$element' is not present in the list."
+fi
